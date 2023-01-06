@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { delay, first } from 'rxjs';
 import { Ramais } from '../model/ramais';
 
 @Injectable({
@@ -14,6 +15,10 @@ export class RamaisService {
   }
 
   getRamis() {
-    return this.httpClient.get<Ramais[]>(this.API);
+    return this.httpClient.get<Ramais[]>(this.API).pipe(
+      // delay(2000),
+      //  first() se inscreve no observable e assim que receber a primeira respos se desincreve do observable
+      // first()
+    );
   }
 }

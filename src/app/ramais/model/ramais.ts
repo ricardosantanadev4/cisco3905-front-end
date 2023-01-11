@@ -3,4 +3,6 @@ export interface Ramais {
     ramal: string;
     serialNumber: string;
     ipCentral: string;
+    status: string;
+    // action: ?;
 }

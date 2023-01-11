@@ -4,7 +4,29 @@
             "id": "1",
             "ramal": "6001",
             "serialNumber": "lzk606895",
-            "ipCentral": "192.168.10.1"
+            "ipCentral": "192.168.10.1",
+            "status": "Disponível"
+        },
+        {
+            "id": "2",
+            "ramal": "6002",
+            "serialNumber": "lzk606896",
+            "ipCentral": "192.168.10.2",
+            "status": "Indisponível"
+        },
+        {
+            "id": "3",
+            "ramal": "6003",
+            "serialNumber": "lzk606897",
+            "ipCentral": "192.168.10.3",
+            "status": "Indisponível"
+        },
+        {
+            "id": "4",
+            "ramal": "6004",
+            "serialNumber": "lzk606898",
+            "ipCentral": "192.168.10.4",
+            "status": "Disponível"
         }
     ]
 }

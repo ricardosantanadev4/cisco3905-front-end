@@ -8,7 +8,7 @@ import { Ramais } from '../model/ramais';
 })
 
 export class RamaisService {
-  ramais: Ramais[] = [{ id: '1', ramal: '6001', serialNumber: 'lzk606895', ipCentral: '192.168.10.1' }];
+  ramais: Ramais[] = [{ id: '1', ramal: '6001', serialNumber: 'lzk606895', ipCentral: '192.168.10.1', status: 'Disponível' }];
   private readonly API = 'http://localhost:3000/values';
 
   constructor(private httpClient: HttpClient) {

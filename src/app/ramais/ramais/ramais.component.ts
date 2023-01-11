@@ -14,7 +14,7 @@ export class RamaisComponent {
   // dataSource: Ramais[] = [{ id: '1', ramal: '6001', serialNumber: 'lzk606895', ipCentral: '192.168.10.1' }]
   ramais$: Observable<Ramais[]>;
   // devem ser inseridas somente as colunas que a tabela vai interar
-  displayedColumns = ['ramal', 'serialNumber', 'ipCentral']
+  displayedColumns = ['ramal', 'serialNumber', 'ipCentral','status']
 
   constructor(public ramaisService: RamaisService, public dialog: MatDialog) {
 

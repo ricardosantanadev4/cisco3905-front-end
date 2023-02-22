@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Ramais } from '../model/ramais';
@@ -16,7 +17,7 @@ export class RamaisComponent {
   // devem ser inseridas somente as colunas que a tabela vai interar
   displayedColumns = ['ramal', 'serialNumber', 'ipCentral', 'status', 'actions']
 
-  constructor(public ramaisService: RamaisService, public dialog: MatDialog) {
+  constructor(public ramaisService: RamaisService, public dialog: MatDialog, private router: Router) {
 
     this.ramais$ = this.ramaisService.getRamis().pipe(
       catchError(error => {
@@ -28,5 +29,10 @@ export class RamaisComponent {
   }
   openDialog(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, { data: errorMsg });
+  }
+
+  onAdd() {
+    console.log('onAdd');
+    this.router.navigate(['ramais/new']);
   }
 }

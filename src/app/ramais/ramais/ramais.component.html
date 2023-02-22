@@ -45,6 +45,24 @@
           </td>
         </ng-container>
 
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-mini-fab color="primary" aria-label="Adicionar ramais">
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-header-cell>
+          <!-- *matCellDef="let element" para cada registro que vinher do array vai ser executada uma acao -->
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" aria-label="Editar ramais">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Deletar ramais">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>

@@ -1,0 +1,24 @@
+<button mat-icon-button aria-label="Limpar pesquiza" (click)="refreshForm()" class="spaceButton">
+    <mat-icon>cleaning_services</mat-icon>
+</button>
+
+<button mat-icon-button aria-label="Pesquizar ramal" (click)="onSearch()" class="spaceButton">
+    <mat-icon>search</mat-icon>
+</button>
+
+<button mat-icon-button aria-label="Recarregar todos ramais" (click)="onRefresh()" class="spaceButton">
+    <mat-icon>refresh</mat-icon>
+</button>
+
+<mat-form-field>
+    <mat-label style="color: white;">
+        Serial:
+    </mat-label>
+    <span>
+        <input matInput (keydown.enter)="onSearch()" style="color: white;" [formControl]="formSearch">
+    </span>
+    <mat-error *ngIf="formSearch.invalid">{{getErrorMessage()}}</mat-error>
+    <button *ngIf="formSearch" matSuffix mat-icon-button aria-label="Clear" (click)="refreshForm()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>

@@ -1,0 +1,11 @@
+{
+    "values": [
+        {
+            "id": "1",
+            "ramal": "6001",
+            "serialNumber": "lzk606895",
+            "ipCentral": "192.168.10.1",
+            "status": "Registrado"
+        }
+    ]
+}

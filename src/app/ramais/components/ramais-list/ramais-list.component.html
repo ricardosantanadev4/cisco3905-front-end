@@ -1,0 +1,56 @@
+<mat-table [dataSource]="ramaisList">
+
+    <ng-container matColumnDef="ramal">
+        <mat-header-cell *matHeaderCellDef> Ramal </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.ramal}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="passWord">
+        <mat-header-cell *matHeaderCellDef> Senha </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.passWord}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="serialNumber">
+        <mat-header-cell *matHeaderCellDef> Serial Number </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.serialNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ipCentral">
+        <mat-header-cell *matHeaderCellDef> Ip Central </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.ipCentral}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Stauts </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.status}}
+            <div *ngIf="element.status == 'Registrado'; else elseBlock">
+                <mat-icon aria-hidden="false" aria-label="Staus do ramal" class="registered">{{ element.status |
+                    status}}</mat-icon>
+            </div>
+            <ng-template #elseBlock>
+                <mat-icon aria-hidden="false" aria-label="Staus do ramal" class="notRegistered">{{ element.status |
+                    status}}</mat-icon>
+            </ng-template>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="action-column-header">
+            <button mat-mini-fab aria-label="Adicionar ramais" (click)="onAddRamaisList()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-header-cell>
+        <!-- *matCellDef="let element" para cada registro que vinher do array vai ser executada uma acao -->
+        <mat-cell *matCellDef="let element" class="action-column">
+            <button mat-icon-button color="primary" aria-label="Editar ramais" (click)="onEditRamaisList(element)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Deletar ramais" (click)="onDeletRamaisList(element)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

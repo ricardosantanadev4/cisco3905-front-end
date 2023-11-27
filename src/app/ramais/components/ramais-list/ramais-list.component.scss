@@ -1,0 +1,26 @@
+// scroll da tabela
+mat-table {
+    overflow: auto;
+    max-height: 600px;
+}
+
+.action-column-header {
+    flex: 0 0 126px;
+}
+
+.action-column {
+    flex: 0 0 124px;
+}
+
+::ng-deep .mat-mdc-fab.mat-accent,
+.mat-mdc-mini-fab.mat-accent {
+    --mdc-fab-container-color: #5FBFEC;
+}
+
+::ng-deep .mat-mdc-icon-button.mat-primary {
+    --mdc-icon-button-icon-color: #5D82D1;
+}
+
+::ng-deep .mat-mdc-icon-button.mat-warn {
+    --mdc-icon-button-icon-color: #E13138;
+}

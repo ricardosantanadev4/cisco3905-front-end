@@ -1,0 +1,8 @@
+mat-toolbar {
+    background-color: #323232;
+    color: white;
+}
+
+::ng-deep .mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: #5FBFEC;
+}

@@ -1,0 +1,35 @@
+mat-card {
+    width: 80%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+::ng-deep .mat-toolbar.mat-primary {
+    background: #4DB8EA;
+}
+
+// largura do formulario
+.min-width {
+    width: 100%;
+    min-width: 150px;
+}
+
+// largura dos inputs
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-cancel {
+    margin-left: 20px;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+    --mdc-snackbar-container-color: #4DB8EA;
+
+}

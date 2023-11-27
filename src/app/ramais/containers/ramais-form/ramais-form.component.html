@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary">
+      <span>Ramal</span>
+    </mat-toolbar>
+
+    <form [formGroup]="ramaisForm">
+      <mat-form-field>
+        <mat-label>Ramal</mat-label>
+        <input matInput formControlName="ramal" #ramal>
+        <mat-hint align="end">{{ramal.value.length}}/4</mat-hint>
+        <mat-error
+          *ngIf="ramaisForm.get('ramal')?.invalid">{{formUtils.getErrorMessage(ramaisForm,'ramal')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="passWord" #passWord>
+        <mat-hint align="end">{{passWord.value.length}}/100</mat-hint>
+        <mat-error
+          *ngIf="ramaisForm.get('passWord')?.invalid">{{formUtils.getErrorMessage(ramaisForm,'passWord')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Serial</mat-label>
+        <input matInput formControlName="serialNumber" #serial>
+        <mat-hint align="end">{{serial.value.length}}/15</mat-hint>
+        <mat-error
+          *ngIf="ramaisForm.get('serialNumber')?.invalid">{{formUtils.getErrorMessage(ramaisForm,'serialNumber')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Ip Cemtral</mat-label>
+        <input matInput formControlName="ipCentral" #ip>
+        <mat-hint align="end">{{ip.value.length}}/15</mat-hint>
+        <mat-error
+          *ngIf="ramaisForm.get('ipCentral')?.invalid">{{formUtils.getErrorMessage(ramaisForm,'ipCentral')}}</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">SALVAR</button>
+    <button mat-raised-button class="button-cancel" (click)="onCancel()">CANCELAR</button>
+  </mat-card-actions>
+
+</mat-card>

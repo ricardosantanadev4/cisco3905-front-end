@@ -8,9 +8,9 @@ import { Ramais } from '../../model/ramais';
 })
 export class RamaisListComponent {
   @Input() ramaisList: Ramais[] = [];
-  @Output() addRamaisList = new EventEmitter(false);
+  @Output() addRamaisList = new EventEmitter<boolean>(false);
   @Output() editRamaisList = new EventEmitter<Ramais>(false);
-  @Output() deletRamaisList = new EventEmitter(false);
+  @Output() deletRamaisList = new EventEmitter<Ramais>(false);
 
   readonly displayedColumns = ['ramal', 'passWord', 'serialNumber', 'ipCentral', 'status', 'actions'];
 

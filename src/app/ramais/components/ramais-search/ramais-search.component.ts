@@ -8,7 +8,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 })
 export class RamaisSearchComponent {
   @Output() enterSearch = new EventEmitter<string>();
-  @Output() refreshSearch = new EventEmitter<Boolean>(false);
+  @Output() refreshSearch = new EventEmitter<boolean>(false);
 
   formSearch = this.formBuild.control('', [Validators.required, Validators.minLength(15), Validators.maxLength(15)])
 
@@ -38,7 +38,6 @@ export class RamaisSearchComponent {
   }
 
   onSearch() {
-    console.log('onSearch');
     if (this.formSearch.invalid) {
       return;
     }
@@ -47,7 +46,6 @@ export class RamaisSearchComponent {
   }
 
   onRefresh() {
-    console.log('onRefresh');
     this.refreshSearch.emit(true);
   }
 }

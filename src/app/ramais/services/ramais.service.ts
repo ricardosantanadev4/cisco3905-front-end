@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ramais } from '../model/ramais';
+import { RamalPage } from '../model/ramal-page';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,11 @@ export class RamaisService {
   constructor(private httpClient: HttpClient) {
   }
 
-  list(event: string) {
-    if (event) {
-      const parametro = '?serial=' + event;
-      return this.httpClient.get<Ramais[]>(`${this.API}` + parametro);
+  list(serial: boolean | string, page: number, size: number) {
+    if (serial) {
+      return this.httpClient.get<RamalPage>(this.API, { params: { serial } });
     }
-    return this.httpClient.get<Ramais[]>(this.API);
+    return this.httpClient.get<RamalPage>(this.API, { params: { page, size } });
   }
 
   save(record: Partial<Ramais>) {

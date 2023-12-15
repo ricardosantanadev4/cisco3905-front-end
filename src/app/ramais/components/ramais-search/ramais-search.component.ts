@@ -10,7 +10,7 @@ export class RamaisSearchComponent {
   @Output() enterSearch = new EventEmitter<string>();
   @Output() refreshSearch = new EventEmitter<boolean>(false);
 
-  formSearch = this.formBuild.control('', [Validators.required, Validators.minLength(15), Validators.maxLength(15)])
+  formSearch = this.formBuild.control('', [Validators.required, Validators.maxLength(100)])
 
   constructor(private formBuild: NonNullableFormBuilder) {
   }
@@ -18,11 +18,6 @@ export class RamaisSearchComponent {
   getErrorMessage() {
     if (this.formSearch?.hasError('required')) {
       return `Campo vazio.`;
-    }
-
-    if (this.formSearch?.hasError('minlength')) {
-      const requeridLength = this.formSearch.errors ? this.formSearch.errors['minlength']['requiredLength'] : 1;
-      return `Mínimo de ${requeridLength} caracteres`;
     }
 
     if (this.formSearch?.hasError('maxlength')) {
@@ -34,7 +29,7 @@ export class RamaisSearchComponent {
   }
 
   refreshForm() {
-    return this.formSearch = this.formBuild.control('', [Validators.required, Validators.minLength(15), Validators.maxLength(15)]);
+    return this.formSearch = this.formBuild.control('', [Validators.required, Validators.maxLength(100)]);
   }
 
   onSearch() {

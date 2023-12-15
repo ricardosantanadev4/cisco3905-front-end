@@ -13,9 +13,9 @@ export class RamaisService {
   constructor(private httpClient: HttpClient) {
   }
 
-  list(serial: boolean | string, page: number, size: number) {
-    if (serial) {
-      return this.httpClient.get<RamalPage>(this.API, { params: { serial } });
+  list(searchTerm: boolean | string, page: number, size: number) {
+    if (searchTerm) {
+      return this.httpClient.get<RamalPage>(this.API, { params: { searchTerm } });
     }
     return this.httpClient.get<RamalPage>(this.API, { params: { page, size } });
   }

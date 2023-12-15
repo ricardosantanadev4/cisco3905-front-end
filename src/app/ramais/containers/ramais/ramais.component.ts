@@ -28,8 +28,8 @@ export class RamaisComponent {
     this.paginatorLabel(paginatorIntl);
   }
 
-  refresh(serial: boolean | string, pageEvent: PageEvent = { length: 0, pageIndex: 0, pageSize: 10 }) {
-    if (serial == true) {
+  refresh(event: boolean | string, pageEvent: PageEvent = { length: 0, pageIndex: 0, pageSize: 10 }) {
+    if (event == true) {
       this.ramais$ = this.ramaisService.list('', pageEvent.pageIndex, pageEvent.pageSize).pipe(
         tap(() => { this.pageIndex = pageEvent.pageIndex, this.pageSize = pageEvent.pageSize }),
         catchError(() => {
@@ -38,7 +38,7 @@ export class RamaisComponent {
         })
       );
     } else {
-      this.ramais$ = this.ramaisService.list(serial, pageEvent.pageIndex, pageEvent.pageSize).pipe(
+      this.ramais$ = this.ramaisService.list(event, pageEvent.pageIndex, pageEvent.pageSize).pipe(
         catchError(() => {
           this.openDialog('Erro ao carregar recursos.');
           return of({ ramais: [], TotalElements: 0 })

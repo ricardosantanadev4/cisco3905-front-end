@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormUtilsService } from 'src/app/shared/forms/form-utils.service';
 
 @Component({
   selector: 'app-ramais-search',
@@ -10,22 +11,9 @@ export class RamaisSearchComponent {
   @Output() enterSearch = new EventEmitter<string>();
   @Output() refreshSearch = new EventEmitter<boolean>(false);
 
-  formSearch = this.formBuild.control('', [Validators.required, Validators.maxLength(100)])
+  formSearch = this.formBuild.control('', [Validators.required, Validators.maxLength(100)]);
 
-  constructor(private formBuild: NonNullableFormBuilder) {
-  }
-
-  getErrorMessage() {
-    if (this.formSearch?.hasError('required')) {
-      return `Campo vazio.`;
-    }
-
-    if (this.formSearch?.hasError('maxlength')) {
-      const requiredLength = this.formSearch.errors ? this.formSearch.errors['maxlength']['requiredLength'] : 1;
-      return `Máximo de ${requiredLength} caracteres`;
-    }
-
-    return;
+  constructor(private formBuild: NonNullableFormBuilder, public formUtils: FormUtilsService) {
   }
 
   refreshForm() {

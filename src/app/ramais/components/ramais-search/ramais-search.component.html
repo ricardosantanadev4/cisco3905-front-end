@@ -17,7 +17,7 @@
     <span>
         <input matInput (keydown.enter)="onSearch()" style="color: white;" [formControl]="formSearch">
     </span>
-    <mat-error *ngIf="formSearch.invalid">{{getErrorMessage()}}</mat-error>
+    <mat-error *ngIf="formSearch.invalid">{{formUtils.getErrorMessageFromField(formSearch)}}</mat-error>
     <button *ngIf="formSearch" matSuffix mat-icon-button aria-label="Clear" (click)="refreshForm()">
         <mat-icon>close</mat-icon>
     </button>

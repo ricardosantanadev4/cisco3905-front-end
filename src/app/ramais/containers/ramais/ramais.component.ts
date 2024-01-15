@@ -34,14 +34,14 @@ export class RamaisComponent {
         tap(() => { this.pageIndex = pageEvent.pageIndex, this.pageSize = pageEvent.pageSize }),
         catchError(() => {
           this.openDialog('Erro ao carregar recursos.');
-          return of({ ramais: [], TotalElements: 0 })
+          return of({ ramais: [], totalElements: 0 })
         })
       );
     } else {
       this.ramais$ = this.ramaisService.list(event, pageEvent.pageIndex, pageEvent.pageSize).pipe(
         catchError(() => {
           this.openDialog('Erro ao carregar recursos.');
-          return of({ ramais: [], TotalElements: 0 })
+          return of({ ramais: [], totalElements: 0 })
         })
       );
     }

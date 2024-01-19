@@ -12,7 +12,7 @@ export class RamaisListComponent {
   @Output() editRamaisList = new EventEmitter<Ramais>(false);
   @Output() deletRamaisList = new EventEmitter<Ramais>(false);
 
-  readonly displayedColumns = ['ramal', 'serialNumber', 'ipCentral', 'status', 'actions'];
+  readonly displayedColumns = ['ramal', 'serialNumber', 'ipCentral', 'actions'];
 
   constructor() { }
 

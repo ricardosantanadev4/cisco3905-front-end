@@ -30,7 +30,7 @@ export class RamaisFormComponent {
     this.ramaisForm.setValue({
       id: ramais.id,
       ramal: ramais.ramal,
-      passWord: ramais.passWord,
+      passWord: '',
       serialNumber: ramais.serialNumber,
       ipCentral: ramais.ipCentral
     });

@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { FormUtilsService } from 'src/app/shared/forms/form-utils.service';
 import { Ramais } from '../../model/ramais';
@@ -22,8 +23,9 @@ export class RamaisFormComponent {
   })
 
   serial: string;
+
   constructor(private formBuilder: NonNullableFormBuilder, private ramaisService: RamaisService
-    , private location: Location, private route: ActivatedRoute, public formUtils: FormUtilsService) {
+    , private location: Location, private route: ActivatedRoute, private _snackBar: MatSnackBar, public formUtils: FormUtilsService) {
 
     const ramais: Ramais = this.route.snapshot.data['ramal'];
     this.serial = ramais.serialNumber;
@@ -61,12 +63,12 @@ export class RamaisFormComponent {
   }
 
   onSucess(response: string) {
-    this.formUtils.opensnackBar(response);
+    this.formUtils.opensnackBar(response,'blue-snackbar');
     this.onCancel();
   }
 
   onErro(error: string) {
-    this.formUtils.opensnackBar(error);
+    this.formUtils.opensnackBar(error,'red-snackbar');
   }
 
 }

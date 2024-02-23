@@ -6,3 +6,11 @@ mat-toolbar {
 ::ng-deep .mat-mdc-raised-button.mat-primary {
     --mdc-protected-button-container-color: #5FBFEC;
 }
+
+::ng-deep .blue-snackbar {
+    --mdc-snackbar-container-color: #4DB8EA;
+}
+
+::ng-deep .red-snackbar {
+    --mdc-snackbar-container-color: #EF5350;
+}

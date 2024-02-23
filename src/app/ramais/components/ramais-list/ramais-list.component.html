@@ -15,20 +15,6 @@
         <mat-cell *matCellDef="let element"> {{element.ipCentral}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="status">
-        <mat-header-cell *matHeaderCellDef> Stauts </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.status}}
-            <div *ngIf="element.status == 'Registrado'; else elseBlock">
-                <mat-icon aria-hidden="false" aria-label="Staus do ramal" class="registered">{{ element.status |
-                    status}}</mat-icon>
-            </div>
-            <ng-template #elseBlock>
-                <mat-icon aria-hidden="false" aria-label="Staus do ramal" class="notRegistered">{{ element.status |
-                    status}}</mat-icon>
-            </ng-template>
-        </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef class="action-column-header">
             <button mat-mini-fab aria-label="Adicionar ramais" (click)="onAddRamaisList()">

@@ -101,18 +101,21 @@ export class RamaisComponent {
 
     dialogRef.afterClosed().subscribe(
       result => {
-      if (result) {
-        this.ramaisService.deleteById(element.id).subscribe(
-          {
-            next: () => {
-              this.refresh('');
+        if (result) {
+          this.ramaisService.deleteById(element.id).subscribe(
+            {
+              next: () => {
+                this.refresh('');
 
-              this.formUtilsService.opensnackBar('Ramal deletado com sucesso!', 'blue-snackbar')
-            },
-            error: () => this.formUtilsService.opensnackBar('Erro ao excluir ramal', 'red-snackbar')
-          }
-        );
-      }
-    });
+                this.formUtilsService.opensnackBar('Ramal deletado com sucesso!', 'blue-snackbar')
+              },
+              error: () => this.formUtilsService.opensnackBar(
+                'Erro!\n' + 'Ocorreu um erro ao tentar excluir o ramal,\n' + 'favor entrar em contato com o suporte.',
+                'red-snackbar'
+              )
+            }
+          );
+        }
+      });
   }
 }

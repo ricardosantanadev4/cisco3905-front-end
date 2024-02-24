@@ -9,8 +9,17 @@ mat-toolbar {
 
 ::ng-deep .blue-snackbar {
     --mdc-snackbar-container-color: #4DB8EA;
+    --mat-mdc-snack-bar-button-color: white;
 }
 
 ::ng-deep .red-snackbar {
     --mdc-snackbar-container-color: #EF5350;
+    --mat-mdc-snack-bar-button-color: white;
+    white-space: pre-line;
+
+    ::ng-deep .mdc-snackbar__actions {
+        display: block;
+        margin-top: 6px;
+    }
 }
+

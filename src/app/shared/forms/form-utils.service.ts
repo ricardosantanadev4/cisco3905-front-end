@@ -8,9 +8,13 @@ import { ConfirmationDialogComponent } from '../components/confirmation-dialog/c
   providedIn: 'root'
 })
 export class FormUtilsService {
+  snackBarErrorMessageExistingRegistration = 'Operação não concluida!\n' + 'Cadastro existente na base de dados.\n'
+    + 'Observações:\n' + '1 - Você pode está tentando cadastrar um ramal em uma central que já possui o mesmo ramal cadastrado.\n'
+    + '2 - Você pode está informando um serial que já possui cadastro em alguma central.\n' + 'Ação a ser tomada:\n'
+    + 'Edite ou exclua o cadastro existente.\n';
 
   constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) { }
-
+  
   validateAllFormFields(formGroup: UntypedFormGroup | UntypedFormArray) {
     Object.keys(formGroup.controls).forEach(
       field => {
@@ -53,13 +57,12 @@ export class FormUtilsService {
   }
 
   opensnackBar(response: string, scssClassName: string) {
-    console.log(scssClassName);
     this._snackBar.open(
-      response, '', {
-      duration: 3000,
+      response, 'X', {
+      // duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
-      panelClass: scssClassName
+      panelClass: [scssClassName]
     }
     );
   }
